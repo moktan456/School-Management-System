@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
-
+use App\Http\Controllers\Backend\Setup\StudentClassController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -43,4 +43,13 @@ Route::prefix('profile')->group(function(){
     Route::get('/password/view',[ProfileController::class,'passwordview'])->name('password.view');
     Route::post('/password/upate',[ProfileController::class,'passwordupdate'])->name('password.update');
     
+});
+//Route for setup management
+Route::prefix('setups')->group(function(){
+    Route::get('student/class/view',[StudentClassController::class,'viewclass'])->name('student.class.view');
+    Route::get('student/class/add',[StudentClassController::class,'addclass'])->name('student.class.add');
+    Route::post('student/class/store',[StudentClassController::class,'storeclass'])->name('student.class.store');
+    Route::get('student/class/edit/{id}',[StudentClassController::class,'editclass'])->name('student.class.edit');
+    Route::post('student/class/update/{id}',[StudentClassController::class,'updateclass'])->name('student.class.update');
+    Route::get('student/class/delete/{id}',[StudentClassController::class,'deleteclass'])->name('student.class.delete');
 });

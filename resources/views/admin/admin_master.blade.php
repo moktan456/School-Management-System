@@ -61,7 +61,8 @@
   <!-- Sunny Admin App -->
 	<script src="{{asset('backend/js/template.js')}}"></script>
 	<script src="{{asset('backend/js/pages/dashboard.js')}}"></script>
-  {{-- For sweetalert --}}
+ 
+  {{-- For sweetalert (Requires the form element to have id eg. delete in this case) --}}
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
   <script type="text/javascript">
     $(function(){
