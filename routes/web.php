@@ -53,3 +53,4 @@ Route::prefix('setups')->group(function(){
     Route::post('student/class/update/{id}',[StudentClassController::class,'updateclass'])->name('student.class.update');
     Route::get('student/class/delete/{id}',[StudentClassController::class,'deleteclass'])->name('student.class.delete');
 });
+//Route for fee management
