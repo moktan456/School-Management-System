@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
+use App\Http\Controllers\Backend\Setup\StudentYearController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -52,5 +53,13 @@ Route::prefix('setups')->group(function(){
     Route::get('student/class/edit/{id}',[StudentClassController::class,'editclass'])->name('student.class.edit');
     Route::post('student/class/update/{id}',[StudentClassController::class,'updateclass'])->name('student.class.update');
     Route::get('student/class/delete/{id}',[StudentClassController::class,'deleteclass'])->name('student.class.delete');
+    //for academic year
+    Route::get('student/year/view',[StudentYearController::class,'viewyear'])->name('student.year.view');
+    Route::get('student/year/add',[StudentYearController::class,'addyear'])->name('student.year.add');
+    Route::post('student/year/store',[StudentYearController::class,'storeyear'])->name('student.year.store');
+    Route::get('student/year/edit/{id}',[StudentYearController::class,'edityear'])->name('student.year.edit');
+    Route::post('student/year/update/{id}',[StudentYearController::class,'updateyear'])->name('student.year.update');
+    Route::get('student/year/delete/{id}',[StudentYearController::class,'deleteyear'])->name('student.year.delete');
+
 });
-//Route for fee management
+//Route for 

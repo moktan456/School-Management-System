@@ -69,7 +69,7 @@
             <li><a href="{{route('student.class.view')}}"><i class="ti-more"></i>Student Class</a></li>
           </ul>
           <ul class="treeview-menu">
-            <li><a href=""><i class="ti-more"></i>Academic Year</a></li>
+            <li><a href="{{route('student.year.view')}}"><i class="ti-more"></i>Academic Year</a></li>
           </ul>
         </li>
 		  
