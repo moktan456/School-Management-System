@@ -9,5 +9,5 @@
 		  </li>
 		</ul>
     </div>
-	  &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">Psd to Html Expert</a>. All Rights Reserved.
+	  &copy; <script>document.write(new Date().getFullYear())</script> <a href="#">ND Moktan</a>. All Rights Reserved.
   </footer>
