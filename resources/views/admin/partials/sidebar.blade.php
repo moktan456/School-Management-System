@@ -71,6 +71,7 @@
             <li><a href="{{route('student.group.view')}}"><i class="ti-more"></i>Group/Class</a></li>
             <li><a href="{{route('student.shift.view')}}"><i class="ti-more"></i>Student Shift</a></li>
             <li><a href="{{route('fee.category.view')}}"><i class="ti-more"></i>Fee Category</a></li>
+            <li><a href="{{route('fee.amount.view')}}"><i class="ti-more"></i>Fee Category Amount</a></li>
          
           </ul>
         </li>
