@@ -46,8 +46,8 @@ class StudentGroupController extends Controller
 
     }
     public function deletegroup($id){
-        $year = StudentGroup::find($id);
-        $year->delete();
+        $group = StudentGroup::find($id);
+        $group->delete();
         $notification = array(
             'message'=> 'Group deleted successfully',
             'alert-type' => 'info'

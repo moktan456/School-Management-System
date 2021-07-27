@@ -8,19 +8,19 @@
             <!-- Basic Forms -->
              <div class="box">
                <div class="box-header with-border">
-                 <h4 class="box-title">Edit Group</h4>
+                 <h4 class="box-title">Edit Shift</h4>
                  {{-- <h6 class="box-subtitle">Bootstrap Form Validation check the <a class="text-warning" href="http://reactiveraven.github.io/jqBootstrapValidation/">official website </a></h6> --}}
                </div>
                <!-- /.box-header -->
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form action="{{route('student.group.update',$editdata->id)}}" method="POST" >
+                       <form action="{{route('student.shift.update',$editdata->id)}}" method="POST" >
                         @csrf
                          <div class="row">
                             <div class="col-12">
                                 <div class="form-group">
-                                    <h5>Group Name <span class="text-danger">*</span></h5>
+                                    <h5>Shift Name <span class="text-danger">*</span></h5>
                                     <div class="controls">
                                         <input id="name" type="text" name="name" class="form-control" value="{{$editdata->name}}" >
                                     </div>
@@ -33,7 +33,7 @@
                            
                            <div class="text-xs-right">
                             <input type="submit" class="btn btn-rounded btn-info mb-5" value="Update">
-                            <a href="{{route('student.group.view')}}" class="btn btn-rounded btn-warning mb-5">Cancel</a>
+                            <a href="{{route('student.shift.view')}}" class="btn btn-rounded btn-warning mb-5">Cancel</a>
                            </div>
                        </form>
    

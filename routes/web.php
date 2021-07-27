@@ -7,6 +7,8 @@ use App\Http\Controllers\Backend\ProfileController;
 use App\Http\Controllers\Backend\Setup\StudentClassController;
 use App\Http\Controllers\Backend\Setup\StudentYearController;
 use App\Http\Controllers\Backend\Setup\StudentGroupController;
+use App\Http\Controllers\Backend\Setup\StudentShiftController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -69,7 +71,22 @@ Route::prefix('setups')->group(function(){
     Route::get('student/group/edit/{id}',[StudentGroupController::class,'editgroup'])->name('student.group.edit');
     Route::post('student/group/update/{id}',[StudentGroupController::class,'updategroup'])->name('student.group.update');
     Route::get('student/group/delete/{id}',[StudentGroupController::class,'deletegroup'])->name('student.group.delete');
-
-
+    
+    //Student shift
+    Route::get('student/shift/view',[StudentShiftController::class,'viewshift'])->name('student.shift.view');
+    Route::get('student/shift/add',[StudentShiftController::class,'addshift'])->name('student.shift.add');
+    Route::post('student/shift/store',[StudentShiftController::class,'storeshift'])->name('student.shift.store');
+    Route::get('student/shift/edit/{id}',[StudentShiftController::class,'editshift'])->name('student.shift.edit');
+    Route::post('student/shift/update/{id}',[StudentShiftController::class,'updateshift'])->name('student.shift.update');
+    Route::get('student/shift/delete/{id}',[StudentShiftController::class,'deleteshift'])->name('student.shift.delete');
+    
+    //Route for fees
+    Route::get('fee/category/view',[StudentShiftController::class,'viewshift'])->name('fee.category.view');
+    Route::get('fee/category/add',[StudentShiftController::class,'addshift'])->name('student.shift.add');
+    Route::post('fee/category/store',[StudentShiftController::class,'storeshift'])->name('student.shift.store');
+    Route::get('fee/category/edit/{id}',[StudentShiftController::class,'editshift'])->name('student.shift.edit');
+    Route::post('fee/category/update/{id}',[StudentShiftController::class,'updateshift'])->name('student.shift.update');
+    Route::get('fee/category/delete/{id}',[StudentShiftController::class,'deleteshift'])->name('student.shift.delete');
+    
 });
 //Route for 
