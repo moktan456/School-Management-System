@@ -10,8 +10,8 @@
 
                 <div class="box">
                    <div class="box-header with-border">
-                     <h3 class="box-title">Fee Amount List</h3>
-                     <span class="float-right"><a href="{{route('fee.amount.add')}}" class="btn btn-rounded btn-success">Add Fee Amount</a> </span>
+                     <h3 class="box-title">Fee Amount Details</h3>
+                     <span class="float-right"><a href="{{route('fee.amount.add')}}" class="btn btn-rounded btn-success">Add Fee Amount</a> <a href="{{route('fee.amount.view')}}" class="btn btn-rounded btn-warning mb-5">Cancel</a></span>
                    </div>
                    <!-- /.box-header -->
                    <div class="box-body">
@@ -20,23 +20,19 @@
                            <thead>
                                <tr>
                                    <th width="5%">SL</th>
-                                   <th>Fee Category</th>
-                                   <th width="25%">Action</th>
+                                   <th>Class Name</th>
+                                   <th width="25%">Amount</th>
                                    
                                </tr>
                            </thead>
                            <tbody>
-                               @foreach ($allData as $key =>$amt)
+                               @foreach ($detaildata as $key =>$detail)
                                <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$amt['feecategory']['name']}}</td>
-                                
+                                <td>{{$detail['studentclass']['name']}}</td>
+                                <td>{{$detail->amount}}</td>   
                     
-                                <td>
-                                    {{-- id should be used to use sweet alert --}}
-                                    <a href="{{route('fee.amount.edit',$amt->fee_category_id)}}" class="btn btn-rounded btn-info mb-5">Edit</a>
-                                    <a href="{{route('fee.amount.detail',$amt->fee_category_id)}}" class="btn btn-rounded btn-primary mb-5">Details</a>
-                                </td>
+                               
                             </tr> 
                                @endforeach
                                
@@ -53,8 +49,11 @@
                                 
                             </tr>
                            </tfoot> --}}
+                          
                          </table>
+                         
                        </div>
+                       
                    </div>
                    <!-- /.box-body -->
                  </div>

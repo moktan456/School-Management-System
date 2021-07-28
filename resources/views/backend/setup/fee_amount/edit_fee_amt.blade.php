@@ -9,14 +9,14 @@
             <!-- Basic Forms -->
              <div class="box">
                <div class="box-header with-border">
-                 <h4 class="box-title">Add Fee Amount</h4>
+                 <h4 class="box-title">Edit Fee Amount</h4>
                  {{-- <h6 class="box-subtitle">Bootstrap Form Validation check the <a class="text-warning" href="http://reactiveraven.github.io/jqBootstrapValidation/">official website </a></h6> --}}
                </div>
                <!-- /.box-header -->
                <div class="box-body">
                  <div class="row">
                    <div class="col">
-                       <form novalidate="" action="{{route('fee.amount.store')}}" method="POST" >
+                       <form novalidate="" action="{{route('fee.amount.update',$editdata['0']->fee_category_id)}}" method="POST" >
                         @csrf
                          <div class="row">
                             <div class="col-12">
@@ -32,12 +32,13 @@
                                             <option value="" selected="" disabled="" >Select Fee Category</option>
                                             
                                             @foreach ($fee_categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                <option value="{{$category->id}}" {{($editdata['0']->fee_category_id==$category->id)?"selected":""}}>{{$category->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div> <!--End form group-->
-
+                                @foreach ($editdata as $edit)
+                                <div class="delete_whole_extra_item_add" id="delete_whole_extra_item_add">
                                 <div class="row">
                                     <div class="col-md-5">
                                         <div class="form-group">
@@ -47,7 +48,7 @@
                                                     <option value="" selected="" disabled="" >Select Fee Category</option>
                                                     
                                                     @foreach ($classes as $class)
-                                                        <option value="{{$class->id}}">{{$class->name}}</option>
+                                                        <option value="{{$class->id}}" {{($edit->class_id==$class->id)?"selected":""}}>{{$class->name}}</option>
                                                     @endforeach
                                                 </select>
                                             </div>
@@ -57,15 +58,19 @@
                                         <div class="form-group">
                                             <h5>Amount<span class="text-danger">*</span></h5>
                                             <div class="controls">
-                                                <input id="amount" type="" name="amount[]" class="form-control" required="" >
+                                                <input id="amount" type="" name="amount[]" value="{{$edit->amount}}" class="form-control" required="" >
                                             </div>
                                         </div> 
                                     </div>
                                     <div class="col-md-2" style="padding-top: 25px">
                                         <span class="btn btn-success addeventmore"><i class="fa fa-plus-circle"></i></span>
+                                        <span class="btn btn-danger removeeventmore"><i class="fa fa-minus-circle"></i> </span> 
                                     </div>
                                 </div> 
                                 {{-- End row --}}
+                            </div>
+                                @endforeach
+                                
 
                                 
                             </div>
@@ -74,7 +79,7 @@
                         {{-- End add-item --}}
                            
                            <div class="text-xs-right">
-                            <input type="submit" class="btn btn-rounded btn-info mb-5" value="Add">
+                            <input type="submit" class="btn btn-rounded btn-info mb-5" value="Update">
                             <a href="{{route('fee.amount.view')}}" class="btn btn-rounded btn-warning mb-5">Cancel</a>
                            </div>
                        </form>

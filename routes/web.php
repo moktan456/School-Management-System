@@ -82,7 +82,7 @@ Route::prefix('setups')->group(function(){
     Route::post('student/shift/update/{id}',[StudentShiftController::class,'updateshift'])->name('student.shift.update');
     Route::get('student/shift/delete/{id}',[StudentShiftController::class,'deleteshift'])->name('student.shift.delete');
     
-    //Route for fees
+    //Route for fee category
     Route::get('fee/category/view',[FeeCategoryController::class,'viewfeecat'])->name('fee.category.view');
     Route::get('fee/category/add',[FeeCategoryController::class,'addfeecat'])->name('fee.category.add');
     Route::post('fee/category/store',[FeeCategoryController::class,'storefeecat'])->name('fee.category.store');
@@ -94,9 +94,10 @@ Route::prefix('setups')->group(function(){
     Route::get('fee/amount/view',[FeeAmountController::class,'viewfeeamt'])->name('fee.amount.view');
     Route::get('fee/amount/add',[FeeAmountController::class,'addfeeamt'])->name('fee.amount.add');
     Route::post('fee/amount/store',[FeeAmountController::class,'storefeeamt'])->name('fee.amount.store');
-    Route::get('fee/amount/edit/{id}',[FeeAmountController::class,'editfeeamt'])->name('fee.category.edit');
-    Route::post('fee/amount/update/{id}',[FeeAmountController::class,'updatefeeamt'])->name('fee.amount.update');
-    Route::get('fee/amount/delete/{id}',[FeeAmountController::class,'deletefeeamt'])->name('fee.amount.delete');
+    Route::get('fee/amount/edit/{fee_category_id}',[FeeAmountController::class,'editfeeamt'])->name('fee.amount.edit');
+    Route::post('fee/amount/update/{fee_category_id}',[FeeAmountController::class,'updatefeeamt'])->name('fee.amount.update');
+    Route::get('fee/amount/details/{fee_category_id}',[FeeAmountController::class,'detailfeeamt'])->name('fee.amount.detail');
+    Route::get('fee/amount/delete/{fee_category_id}',[FeeAmountController::class,'deletefeeamt'])->name('fee.amount.delete');
     
 });
 //Route for 
