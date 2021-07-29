@@ -10,8 +10,9 @@
 
                 <div class="box">
                    <div class="box-header with-border">
-                     <h3 class="box-title">Fee Amount List</h3>
-                     <span class="float-right"><a href="{{route('fee.amount.add')}}" class="btn btn-rounded btn-success">Add Fee Amount</a> </span>
+                     <h3 class="box-title">Assigned Subject List</h3>
+                     <span class="float-right"><a href="{{route('assign.subject.add')}}" 
+                        class="btn btn-rounded btn-success">Assign Subject</a> </span>
                    </div>
                    <!-- /.box-header -->
                    <div class="box-body">
@@ -21,22 +22,22 @@
                            <thead class="thead-light">
                                <tr>
                                    <th width="5%">SL</th>
-                                   <th>Fee Category</th>
+                                   <th>Class Name</th>
                                    <th width="25%">Action</th>
                                    
                                </tr>
                            </thead>
                            <tbody>
-                               @foreach ($allData as $key =>$amt)
+                               @foreach ($allData as $key =>$assign)
                                <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$amt['feecategory']['name']}}</td>
+                                <td>{{$assign['studentclass']['name']}}</td>
                                 
                     
                                 <td>
                                     {{-- id should be used to use sweet alert --}}
-                                    <a href="{{route('fee.amount.edit',$amt->fee_category_id)}}" class="btn btn-rounded btn-info mb-5">Edit</a>
-                                    <a href="{{route('fee.amount.detail',$amt->fee_category_id)}}" class="btn btn-rounded btn-primary mb-5">Details</a>
+                                    <a href="{{route('assign.subject.edit',$assign->class_id)}}" class="btn btn-rounded btn-info mb-5">Edit</a>
+                                    {{-- <a href="{{route('fee.amount.detail',$assign->fee_category_id)}}" class="btn btn-rounded btn-primary mb-5">Details</a> --}}
                                 </td>
                             </tr> 
                                @endforeach
