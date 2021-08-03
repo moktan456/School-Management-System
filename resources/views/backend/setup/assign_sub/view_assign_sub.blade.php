@@ -37,7 +37,7 @@
                                 <td>
                                     {{-- id should be used to use sweet alert --}}
                                     <a href="{{route('assign.subject.edit',$assign->class_id)}}" class="btn btn-rounded btn-info mb-5">Edit</a>
-                                    {{-- <a href="{{route('fee.amount.detail',$assign->fee_category_id)}}" class="btn btn-rounded btn-primary mb-5">Details</a> --}}
+                                    {{-- <a href="{{route('fee.amount.detail',$assign->class_id)}}" class="btn btn-rounded btn-primary mb-5">Details</a> --}}
                                 </td>
                             </tr> 
                                @endforeach

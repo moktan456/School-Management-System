@@ -122,9 +122,9 @@ Route::prefix('setups')->group(function(){
     Route::get('assign/subject/view',[AssignSubjectController::class,'viewssnsub'])->name('assign.subject.view');
     Route::get('assign/subject/add',[AssignSubjectController::class,'addssnsub'])->name('assign.subject.add');
     Route::post('assign/subject/store',[AssignSubjectController::class,'storessnsub'])->name('assign.subject.store');
-    Route::get('assign/subject/edit/{fee_category_id}',[AssignSubjectController::class,'editssnsub'])->name('assign.subject.edit');
-    Route::post('assign/subject/update/{fee_category_id}',[AssignSubjectController::class,'updatessnsub'])->name('assign.subject.update');
-    Route::get('assign/subject/details/{fee_category_id}',[AssignSubjectController::class,'detailssnsub'])->name('assign.subject.detail');
+    Route::get('assign/subject/edit/{class_id}',[AssignSubjectController::class,'editssnsub'])->name('assign.subject.edit');
+    Route::post('assign/subject/update/{class_id}',[AssignSubjectController::class,'updatessnsub'])->name('assign.subject.update');
+    Route::get('assign/subject/details/{class_id}',[AssignSubjectController::class,'detailssnsub'])->name('assign.subject.detail');
     Route::get('assign/subject/delete/{fee_category_id}',[AssignSubjectController::class,'deletessnsub'])->name('assign.subject.delete');
     
 });
