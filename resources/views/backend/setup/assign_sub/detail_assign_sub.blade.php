@@ -10,33 +10,33 @@
 
                 <div class="box">
                    <div class="box-header with-border">
-                     <h3 class="box-title">Assigned Subject List</h3>
-                     <span class="float-right"><a href="{{route('assign.subject.add')}}" 
-                        class="btn btn-rounded btn-success">Assign Subject</a> </span>
+                     <h3 class="box-title">Assigned Subject Details</h3>
+                     <span class="float-right"><a href="{{route('assign.subject.add')}}" class="btn btn-rounded btn-success">Assign Subject</a> </span>
+                     <span class="float-right"><a href="{{route('assign.subject.view')}}" class="btn btn-rounded btn-warning mb-5">Back</a></span>
                    </div>
                    <!-- /.box-header -->
                    <div class="box-body">
-                       
+                    <h4><strong>Assigned Subject : {{$detaildata['0']['studentclass']['name']}}</strong></h4>
                        <div class="table-responsive">
                          <table class="table table-bordered table-striped">
                            <thead class="thead-light">
                                <tr>
                                    <th width="5%">SL</th>
-                                   <th>Class Name</th>
-                                   <th width="25%">Action</th>
-                                   
+                                   <th width="20%">Subject</th>
+                                   <th width="20%">Full Mark</th>
+                                   <th width="20%">Pass Mark</th>
+                                   <th width="20%">Subjective Mark</th>
                                </tr>
                            </thead>
                            <tbody>
-                               @foreach ($allData as $key =>$assign)
+                               @foreach ($detaildata as $key =>$detail)
                                <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$assign['studentclass']['name']}}</td>
-                                <td>
-                                    {{-- id should be used to use sweet alert --}}
-                                    <a href="{{route('assign.subject.edit',$assign->class_id)}}" class="btn btn-rounded btn-info mb-5">Edit</a>
-                                    <a href="{{route('assign.subject.detail',$assign->class_id)}}" class="btn btn-rounded btn-primary mb-5">Details</a>
-                                </td>
+                                {{-- Accessing the data from parent table: [method_name][field_name] --}}
+                                <td>{{$detail['subject']['name']}}</td>
+                                <td>{{$detail->full_mark}}</td>   
+                                <td>{{$detail->pass_mark}}</td>
+                                <td>{{$detail->subjective_mark}}</td>
                             </tr> 
                                @endforeach
                                
@@ -53,8 +53,11 @@
                                 
                             </tr>
                            </tfoot> --}}
+                          
                          </table>
+                         
                        </div>
+                       
                    </div>
                    <!-- /.box-body -->
                  </div>

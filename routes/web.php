@@ -13,7 +13,8 @@ use App\Http\Controllers\Backend\Setup\FeeAmountController;
 use App\Http\Controllers\Backend\Setup\ExamTypeController;
 use App\Http\Controllers\Backend\Setup\SubjectController;
 use App\Http\Controllers\Backend\Setup\AssignSubjectController;
-
+use App\Http\Controllers\Backend\Setup\DesignationController;
+use App\Http\Controllers\Backend\Student\StdRegController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -125,7 +126,23 @@ Route::prefix('setups')->group(function(){
     Route::get('assign/subject/edit/{class_id}',[AssignSubjectController::class,'editssnsub'])->name('assign.subject.edit');
     Route::post('assign/subject/update/{class_id}',[AssignSubjectController::class,'updatessnsub'])->name('assign.subject.update');
     Route::get('assign/subject/details/{class_id}',[AssignSubjectController::class,'detailssnsub'])->name('assign.subject.detail');
-    Route::get('assign/subject/delete/{fee_category_id}',[AssignSubjectController::class,'deletessnsub'])->name('assign.subject.delete');
+    //Route::get('assign/subject/delete/{fee_category_id}',[AssignSubjectController::class,'deletessnsub'])->name('assign.subject.delete');
+    
+    //Route for designation
+    Route::get('designation/view',[DesignationController::class,'index'])->name('designation.view');
+    Route::get('designation/add',[DesignationController::class,'create'])->name('designation.add');
+    Route::post('designation/store',[DesignationController::class,'store'])->name('designation.store');
+    Route::get('designation/edit/{id}',[DesignationController::class,'edit'])->name('designation.edit');
+    Route::post('designation/update/{id}',[DesignationController::class,'update'])->name('designation.update');
+    Route::get('designation/delete/{id}',[DesignationController::class,'destroy'])->name('designation.delete');
+});
+//Route for student registration
+Route::prefix('students')->group(function(){
+    Route::get('reg/view',[StdRegController::class,'index'])->name('std.reg.view');
+    Route::get('reg/add',[StdRegController::class,'create'])->name('std.reg.add');
+    Route::post('reg/store',[StdRegController::class,'store'])->name('std.reg.store');
+    Route::get('reg/edit/{id}',[StdRegController::class,'edit'])->name('std.reg.edit');
+    Route::post('reg/update/{id}',[StdRegController::class,'update'])->name('std.reg.update');
+    Route::get('reg/delete/{id}',[StdRegController::class,'destroy'])->name('std.reg.delete');
     
 });
-//Route for 

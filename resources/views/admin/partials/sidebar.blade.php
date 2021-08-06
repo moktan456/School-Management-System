@@ -29,20 +29,22 @@
 			<span>Dashboard</span>
           </a>
         </li>  
-		
-        <li class="treeview {{($prefix =='/users')?'active':''}}">
-          <a href="#">
-            <i data-feather="users"></i>
-            <span>Manage User</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-right pull-right"></i>
-            </span>
-          </a>
-          <ul class="treeview-menu">
-            <li><a href="{{route('user.view')}}"><i class="ti-more"></i>View User</a></li>
-            <li><a href="{{route('user.add')}}"><i class="ti-more"></i>Add User</a></li>
-          </ul>
-        </li> 
+        @if (Auth::user()->role=='Admin')
+          <li class="treeview {{($prefix =='/users')?'active':''}}">
+            <a href="#">
+              <i data-feather="users"></i>
+              <span>Manage User</span>
+              <span class="pull-right-container">
+                <i class="fa fa-angle-right pull-right"></i>
+              </span>
+            </a>
+            <ul class="treeview-menu">
+              <li><a href="{{route('user.view')}}"><i class="ti-more"></i>View User</a></li>
+              <li><a href="{{route('user.add')}}"><i class="ti-more"></i>Add User</a></li>
+            </ul>
+          </li> 
+        @endif
+        
 		  
         <li class="treeview {{($prefix =='/profile')?'active':''}}">
           <a href="#">
@@ -75,10 +77,21 @@
             <li><a href="{{route('exam.type.view')}}"><i class="ti-more"></i>Exam Type</a></li>
             <li><a href="{{route('school.subject.view')}}"><i class="ti-more"></i>School Subject</a></li>
             <li><a href="{{route('assign.subject.view')}}"><i class="ti-more"></i>Assign Subject</a></li>
-         
+            <li><a href="{{route('designation.view')}}"><i class="ti-more"></i>Designation</a></li>
           </ul>
         </li>
-		  
+        
+        <li class="treeview {{($prefix =='/students')?'active':''}}">
+          <a href="#">
+            <i data-feather="edit"></i> <span>Std Management</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-right pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li><a href="{{route('std.reg.view')}}"><i class="ti-more"></i>Student Registration</a></li>
+          </ul>
+        </li>
 		 
         <li class="header nav-small-cap">User Interface</li>
 		  

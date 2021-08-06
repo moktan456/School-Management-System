@@ -9,7 +9,7 @@ use App\Models\User;
 class UserController extends Controller
 {
     public function userview(){
-       $data['userdata'] = User::all();
+       $data['userdata'] = User::where('usertype','Admin')->get();
        return view('backend.user.view_user',$data);
     }
     public function adduser(){
@@ -19,14 +19,16 @@ class UserController extends Controller
         $validated = $request->validate([
             'email' => 'required|unique:users',
             'name' => 'required',
-            'usertype' => 'required',
-            'password' => 'required',
         ]);
         $userdata = new User();
-        $userdata->usertype = $request->usertype;
+        //To generate password/code
+        $code = rand(0000,9999);
+        $userdata->usertype = 'Admin';
+        $userdata->role = $request->role;
         $userdata->name = $request->name;
         $userdata->email = $request->email;
-        $userdata->password = bcrypt($request->password);
+        $userdata->password = bcrypt($code);
+        $userdata->code = $code;
         $userdata->save();
         $notification = array(
             'message'=> 'User sdded successfully',
@@ -42,7 +44,7 @@ class UserController extends Controller
 
     public function updateuser(Request $request, $id){
         $userdata = User::find($id);
-        $userdata->usertype = $request->usertype;
+        $userdata->role = $request->role;
         $userdata->name = $request->name;
         $userdata->email = $request->email;
         $userdata->save();

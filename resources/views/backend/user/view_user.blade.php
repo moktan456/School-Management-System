@@ -32,10 +32,10 @@
                                @foreach ($userdata as $key =>$user)
                                <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$user->usertype}}</td>
+                                <td>{{$user->role}}</td>
                                 <td>{{$user->name}}</td>
                                 <td>{{$user->email}}</td>
-                                <td></td>
+                                <td>{{$user->code}}</td>
                                 <td>
                                     <a href="{{route('user.edit',$user->id)}}" class="btn btn-rounded btn-info mb-5">Edit</a>
                                     <a href="{{route('user.delete',$user->id)}}" id="delete" class="btn btn-rounded btn-danger mb-5">Delete</a>

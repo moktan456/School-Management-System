@@ -87,4 +87,11 @@ class AssignSubjectController extends Controller
             return redirect()->route('assign.subject.view')->with($notification);
         } // end Method 
     
+    public function detailssnsub($class_id){
+        $data['detaildata'] = AssignSubject::where('class_id',$class_id)->orderBy('subject_id','asc')->get();
+        //dd($data['editdata']->toArray());
+        return view('backend.setup.assign_sub.detail_assign_sub',$data);  
+    }
+        
+    
 }

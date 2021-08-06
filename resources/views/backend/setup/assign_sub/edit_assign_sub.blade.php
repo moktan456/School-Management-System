@@ -82,9 +82,7 @@
                                 </div> 
                                 {{-- End row --}}
                                 @endforeach
-                            </div>
-
-                                
+                            </div>                                
                             </div>
                          </div>
                         </div>

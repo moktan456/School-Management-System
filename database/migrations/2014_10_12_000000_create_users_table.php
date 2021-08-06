@@ -15,11 +15,31 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('usertype');
-            $table->string('name');
-            $table->string('email')->unique();
+            $table->string('usertype')->nullable()->comment('Student,Employee,Admin');
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('mobile')->nullable();
+            $table->string('address')->nullable();
+            $table->string('gender')->nullable();
+            $table->string('image')->nullable();
+            $table->string('fname')->nullable()->comment('Father name');
+            $table->string('mname')->nullable()->comment('mother name');
+            $table->string('religion')->nullable();
+            $table->string('id_no')->nullable();
+            $table->date('dob')->nullable();
+            $table->string('code')->nullable();
+            $table->string('role')->nullable()->comment('Admin=Head of SW, Operator=Computer Operator, User=Employee');
+            $table->date('join_date')->nullable();
+            $table->integer('designation_id')->nullable();
+            $table->double('salary')->nullable();
+            $table->tinyInteger('status')->default(1)->comment('Ative=1,Inactive=0');
+
+
+
+
+
             $table->rememberToken();
             $table->foreignId('current_team_id')->nullable();
             $table->text('profile_photo_path')->nullable();
