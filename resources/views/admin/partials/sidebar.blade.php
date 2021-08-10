@@ -83,7 +83,7 @@
         
         <li class="treeview {{($prefix =='/students')?'active':''}}">
           <a href="#">
-            <i data-feather="edit"></i> <span>Std Management</span>
+            <i data-feather="award"></i> <span>Std Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>

@@ -139,10 +139,12 @@ Route::prefix('setups')->group(function(){
 //Route for student registration
 Route::prefix('students')->group(function(){
     Route::get('reg/view',[StdRegController::class,'index'])->name('std.reg.view');
+    Route::get('custom/view',[StdRegController::class,'customsearch'])->name('std.custom.search');
     Route::get('reg/add',[StdRegController::class,'create'])->name('std.reg.add');
     Route::post('reg/store',[StdRegController::class,'store'])->name('std.reg.store');
-    Route::get('reg/edit/{id}',[StdRegController::class,'edit'])->name('std.reg.edit');
-    Route::post('reg/update/{id}',[StdRegController::class,'update'])->name('std.reg.update');
-    Route::get('reg/delete/{id}',[StdRegController::class,'destroy'])->name('std.reg.delete');
+    Route::get('reg/edit/{student_id}',[StdRegController::class,'edit'])->name('std.reg.edit');
+    Route::post('reg/update/{student_id}',[StdRegController::class,'update'])->name('std.reg.update');
+    Route::get('reg/promote/{student_id}',[StdRegController::class,'promote'])->name('std.reg.promote');
+    Route::post('reg/promoteupdate/{student_id}',[StdRegController::class,'promoteupdate'])->name('std.reg.promoteupdate');
     
 });

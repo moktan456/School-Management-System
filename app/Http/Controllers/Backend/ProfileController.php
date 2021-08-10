@@ -61,7 +61,7 @@ class ProfileController extends Controller
         $data->save();
         $notification = array(
             'message'=>'Profile update successfully',
-            'alert-type' => 'info'
+            'alert-type' => 'success'
         );
         return redirect()->route('profile.view')->with($notification);
     }
