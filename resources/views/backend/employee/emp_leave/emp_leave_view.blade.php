@@ -10,8 +10,8 @@
 
                 <div class="box">
                    <div class="box-header with-border">
-                     <h3 class="box-title">Employee Salary List</h3>
-                     <span class="float-right"><a href="{{route('emp.salary.add')}}" class="btn btn-rounded btn-success">Add Employee Salary</a> </span>
+                     <h3 class="box-title">Employee Leave</h3>
+                     <span class="float-right"><a href="{{route('emp.leave.add')}}" class="btn btn-rounded btn-success">Add Leave</a> </span>
                    </div>
                    <!-- /.box-header -->
                    <div class="box-body">
@@ -21,37 +21,31 @@
                                <tr>
                                    <th width="5%">SL</th>
                                    <th>Name</th>
-                                   <th>EID</th>
-                                   <th>Mobile</th>
-                                   <th>Gender</th>
-                                   <th>Join Date</th>
-                                   <th>Salary</th>
-                                  
-                                  <th width="20%">Action</th>
+                                   <th>ID No</th>
+                                   <th>Purpose</th>
+                                   <th>Start Date</th>
+                                   <th>End Date</th>
+                                   
+                                   <th width="25%">Action</th>
                                    
                                </tr>
                            </thead>
                            <tbody>
-                               @foreach ($allData as $key =>$value)
+                               @foreach ($allData as $key =>$leave)
                                <tr>
                                 <td>{{$key + 1}}</td>
-                                <td>{{$value->name}}</td>
-                                <td>{{$value->id_no}}</td>
-                                <td>{{$value->mobile}}</td>
-                                <td>{{$value->gender}}</td>
-                                <td>{{date('d-m-Y',strtotime($value->join_date))}}</td>
-                                <td>{{$value->salary}}</td>
-                               
-                               
+                                <td>{{$leave['user']['name']}}</td>
+                                <td>{{$leave['user']['id_no']}}</td>
+                                <td>{{$leave['leavepurpose']['name']}}</td>
+                                <td>{{$leave->start_date}}</td>
+                                <td>{{$leave->end_date}}</td>
+                            
+                                
                     
                                 <td>
                                     {{-- id should be used to use sweet alert --}}
-                                    <a title="Increment" href="{{route('emp.salary.increment',$value->id)}}" class="btn btn-rounded btn-info mb-5">
-                                    <i class="fa fa-plus-circle"></i>
-                                    </a>
-                                    <a title="Salary Details" target="_blank" href="{{route('emp.salary.details',$value->id)}}" class="btn btn-rounded btn-warning mb-5">
-                                    <i class="fa fa-eye"></i>
-                                    </a>
+                                    <a href="" class="btn btn-rounded btn-info mb-5">Edit</a>
+                                    <a href="" id="delete" class="btn btn-rounded btn-danger mb-5">Delete</a>
                                 </td>
                             </tr> 
                                @endforeach
@@ -71,7 +65,6 @@
                            </tfoot> --}}
                          </table>
                        </div>
-                       
                    </div>
                    <!-- /.box-body -->
                  </div>

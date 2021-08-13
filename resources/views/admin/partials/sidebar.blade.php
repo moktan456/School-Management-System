@@ -95,7 +95,7 @@
 
         <li class="treeview {{($prefix =='/employees')?'active':''}}">
           <a href="#">
-            <i data-feather="award"></i> <span>Employee Management</span>
+            <i data-feather="briefcase"></i> <span>Employee Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-right pull-right"></i>
             </span>
@@ -103,6 +103,7 @@
           <ul class="treeview-menu">
             <li><a href="{{route('emp.view')}}"><i class="ti-more"></i>Employee Registration</a></li>
             <li><a href="{{route('emp.salary.view')}}"><i class="ti-more"></i>Employee Salary</a></li>
+            <li><a href="{{route('emp.leave.view')}}"><i class="ti-more"></i>Employee Leave</a></li>
           </ul>
         </li>
 		 

@@ -17,6 +17,7 @@ use App\Http\Controllers\Backend\Setup\DesignationController;
 use App\Http\Controllers\Backend\Student\StdRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeRegController;
 use App\Http\Controllers\Backend\Employee\EmployeeSalaryController;
+use App\Http\Controllers\Backend\Employee\EmployeeLeaveController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -163,6 +164,13 @@ Route::group(['middleware'=>'auth'],function(){
         //for salary
         Route::get('emp/salary/view',[EmployeeSalaryController::class,'index'])->name('emp.salary.view');
         Route::get('emp/salary/add',[EmployeeSalaryController::class,'create'])->name('emp.salary.add');
-        Route::post('emp/salary/increment/{id}',[EmployeeSalaryController::class,'increment'])->name('emp.salary.increment');
+        Route::get('emp/salary/increment/{id}',[EmployeeSalaryController::class,'increment'])->name('emp.salary.increment');
+        Route::post('emp/salary/incrementupdate/{id}',[EmployeeSalaryController::class,'incrementupdate'])->name('emp.salary.incrementupdate');
+        Route::get('emp/salary/details/{id}',[EmployeeSalaryController::class,'salarydetails'])->name('emp.salary.details');
+
+        //For leave
+        Route::get('emp/leave/view',[EmployeeLeaveController::class,'index'])->name('emp.leave.view');
+        Route::get('emp/leave/add',[EmployeeLeaveController::class,'create'])->name('emp.leave.add');
+        Route::post('emp/leave/store',[EmployeeLeaveController::class,'store'])->name('emp.leave.store');
     });
 });
